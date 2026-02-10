@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK Business Automations | AI-Powered Solutions for UK Businesses</title>
+<meta name="description" content="Streamline your business with intelligent automation. AI solutions, courses, and consultancy for UK businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #FFD700;
+  --gold-dim: #b8991a;
+  --gold-glow: rgba(255, 215, 0, 0.15);
+  --teal: #006D75;
+  --teal-light: #008B94;
+  --teal-glow: rgba(0, 109, 117, 0.25);
+  --bg: #0a0a0a;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --text: #e8e8e8;
+  --text-dim: #999;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 4px; }
+
+/* ─── NAVIGATION ─── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+}
+
+.nav.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 0.7rem 2rem;
+  box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.nav-logo span { color: var(--teal-light); }
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  color: #fff !important;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+
+.nav-cta::after { display: none !important; }
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--teal-glow);
+  color: #fff !important;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6rem 2rem 4rem;
+}
+
+#particle-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-gradient {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.hero-gradient-1 {
+  top: -200px; right: -100px;
+  background: var(--gold);
+}
+
+.hero-gradient-2 {
+  bottom: -200px; left: -100px;
+  background: var(--teal);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  background: rgba(255, 215, 0, 0.05);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-badge .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.hero h1 .gold { color: var(--gold); }
+.hero h1 .teal { color: var(--teal-light); }
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-dim);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.2rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: #0a0a0a;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.3);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.2rem;
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.btn-outline:hover {
+  border-color: var(--teal-light);
+  color: var(--teal-light);
+  transform: translateY(-3px);
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.hero-stat h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.hero-stat p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+/* ─── SECTION COMMONS ─── */
+section {
+  padding: 7rem 2rem;
+  position: relative;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  max-width: 600px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+  border-radius: 3px;
+  margin: 1.5rem 0 0;
+}
+
+/* ─── SERVICES ─── */
+#services {
+  background: linear-gradient(180deg, var(--bg) 0%, #0d0d0d 100%);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 215, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.service-card:hover::before { opacity: 1; }
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-icon.gold {
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.service-icon.teal {
+  background: rgba(0, 109, 117, 0.15);
+  border: 1px solid rgba(0, 139, 148, 0.3);
+}
+
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.service-card p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: gap 0.3s;
+}
+
+.service-link:hover { gap: 0.8rem; }
+
+.service-link .arrow { transition: transform 0.3s; }
+.service-link:hover .arrow { transform: translateX(4px); }
+
+/* ─── LEAD MAGNET ─── */
+#lead-magnet {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.lead-magnet-wrapper {
+  background: linear-gradient(135deg, rgba(0, 109, 117, 0.12), rgba(255, 215, 0, 0.06));
+  border: 1px solid rgba(255, 215, 0, 0.12);
+  border-radius: 24px;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.lead-magnet-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.lead-magnet-text { flex: 1; position: relative; z-index: 1; }
+
+.lead-magnet-text .free-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: #0a0a0a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.lead-magnet-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.lead-magnet-text p {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.lead-magnet-form {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.email-form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.email-form input {
+  padding: 1rem 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  width: 280px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.email-form input::placeholder { color: var(--text-dim); }
+.email-form input:focus { border-color: var(--gold); }
+
+.email-form button {
+  padding: 1rem 1.8rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: #0a0a0a;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.email-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.form-note {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+
+/* ─── COURSES ─── */
+#courses {
+  background: linear-gradient(180deg, #0d0d0d 0%, var(--bg) 100%);
+}
+
+.courses-preview {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.course-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s, border-color 0.4s;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 139, 148, 0.3);
+}
+
+.course-card .coming-soon-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: -2rem;
+  background: var(--teal);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.3rem 2.5rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transform: rotate(35deg);
+}
+
+.course-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background: rgba(0, 109, 117, 0.12);
+  border: 1px solid rgba(0, 139, 148, 0.25);
+}
+
+.course-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.course-card p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ─── RESOURCES / BLOG ─── */
+#resources {
+  background: var(--bg);
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.resource-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.resource-thumb {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.resource-thumb .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.resource-thumb.gold-bg {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.03));
+}
+
+.resource-thumb.teal-bg {
+  background: linear-gradient(135deg, rgba(0, 109, 117, 0.15), rgba(0, 109, 117, 0.03));
+}
+
+.resource-body {
+  padding: 1.8rem;
+}
+
+.resource-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 0.6rem;
+}
+
+.resource-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.resource-card p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ─── BOOK A CALL CTA ─── */
+#book-call {
+  background: var(--bg);
+  text-align: center;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, rgba(0, 109, 117, 0.15), rgba(255, 215, 0, 0.05));
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 28px;
+  padding: 5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before,
+.cta-box::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.cta-box::before {
+  top: -100px; left: -100px;
+  width: 300px; height: 300px;
+  background: rgba(0, 109, 117, 0.12);
+}
+
+.cta-box::after {
+  bottom: -100px; right: -100px;
+  width: 300px; height: 300px;
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.cta-box h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box p {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  max-width: 550px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-box .btn-primary {
+  font-size: 1.1rem;
+  padding: 1.1rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+.cta-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.cta-feature .check {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: #060606;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand .logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-brand .logo span { color: var(--teal-light); }
+
+.footer-brand p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+
+.footer-col a {
+  display: block;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover { color: var(--gold); }
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.social-link:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-dim);
+  transition: fill 0.3s;
+}
+
+.social-link:hover svg { fill: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.footer-bottom a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: color 0.3s;
+}
+
+.footer-bottom a:hover { color: var(--gold); }
+
+/* ─── MOBILE MENU ─── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.mobile-menu.active { display: flex; }
+
+.mobile-menu a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+  transition: color 0.3s;
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-stats { gap: 1.5rem; }
+  .hero-stat h3 { font-size: 1.5rem; }
+
+  .lead-magnet-wrapper {
+    flex-direction: column;
+    padding: 2.5rem;
+    gap: 2rem;
+  }
+
+  .email-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .email-form input { width: 100%; }
+  .form-note { padding-left: 0; text-align: center; }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  section { padding: 4.5rem 1.2rem; }
+  .hero { padding: 5rem 1.2rem 3rem; }
+  .hero-stats { flex-direction: column; gap: 1.2rem; align-items: center; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .cta-box { padding: 3rem 1.5rem; }
+  .cta-features { flex-direction: column; align-items: center; gap: 1rem; }
+  .resources-grid { grid-template-columns: 1fr; }
+  .courses-preview { grid-template-columns: 1fr; }
+}
+
+/* ─── CUSTOM ANIMATIONS ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-anim { animation: float 4s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold) 0%, #fff 50%, var(--gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── PROMPT BUILDER ─── */
+.prompt-step-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 1.8rem 1.5rem;
+  position: relative;
+}
+
+.prompt-step-num {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.prompt-step-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ccc;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.prompt-select {
+  width: 100%;
+  padding: 0.85rem 2.5rem 0.85rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #e8e8e8;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23FFD700' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.prompt-select:focus,
+.prompt-select.selected {
+  border-color: var(--gold);
+}
+
+.prompt-select option {
+  background: #1a1a1a;
+  color: #e8e8e8;
+}
+
+.prompt-select.shake {
+  animation: prompt-shake 0.5s ease-in-out;
+  border-color: #ff4444;
+}
+
+@keyframes prompt-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav" id="navbar">
+  <a href="#" class="nav-logo">UK Business <span>Automations</span></a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#resources">Blog</a></li>
+    <li><a href="#book-call" class="nav-cta">Book a Call</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMobile()">Home</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#courses" onclick="closeMobile()">Courses</a>
+  <a href="#resources" onclick="closeMobile()">Resources</a>
+  <a href="#resources" onclick="closeMobile()">Blog</a>
+  <a href="#book-call" class="btn-primary" onclick="closeMobile()">Book a Call</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-gradient hero-gradient-1"></div>
+  <div class="hero-gradient hero-gradient-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge" data-aos="fade-down" data-aos-delay="100">
+      <span class="dot"></span> AI-Powered Business Solutions
+    </div>
+    <h1 data-aos="fade-up" data-aos-delay="200">
+      Automate. Optimise.<br><span class="gold">Grow</span> Your <span class="teal">Business.</span>
+    </h1>
+    <p data-aos="fade-up" data-aos-delay="350">
+      We help UK businesses save time, reduce costs, and scale smarter with tailored automation solutions and AI-driven strategies.
+    </p>
+    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="500">
+      <a href="#book-call" class="btn-primary">
+        Book Free Consultation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+    <div class="hero-stats" data-aos="fade-up" data-aos-delay="650">
+      <div class="hero-stat">
+        <h3 class="shimmer-text">500+</h3>
+        <p>Hours Saved Monthly</p>
+      </div>
+      <div class="hero-stat">
+        <h3 class="shimmer-text">98%</h3>
+        <p>Client Satisfaction</p>
+      </div>
+      <div class="hero-stat">
+        <h3 class="shimmer-text">50+</h3>
+        <p>Businesses Automated</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="section-container">
+    <span class="section-label" data-aos="fade-up">What We Do</span>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Our <span style="color:var(--gold)">Services</span></h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Tailored automation and AI solutions designed to transform how your business operates, day-to-day.</p>
+    <div class="section-divider" data-aos="fade-up" data-aos-delay="250"></div>
+
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-icon gold">📋</div>
+        <h3>Care Documentation Audit</h3>
+        <p>Automated auditing for care documentation. Ensure compliance, reduce errors, and save your care team hours of manual checking every single week.</p>
+        <a href="https://caredocumentationaudit.co.uk" target="_blank" rel="noopener" class="service-link">
+          Visit Service <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon teal">📊</div>
+        <h3>Care Home Surveys</h3>
+        <p>Digital survey solutions for care homes. Collect feedback from residents, families, and staff effortlessly with automated analysis and reporting.</p>
+        <a href="https://carehomesurveys.online" target="_blank" rel="noopener" class="service-link">
+          Visit Service <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-icon gold">⚙️</div>
+        <h3>Workflow Automation</h3>
+        <p>From repetitive admin tasks to complex multi-step workflows, we design and build custom automations that free your team to focus on what truly matters.</p>
+        <a href="#book-call" class="service-link">
+          Learn More <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="350">
+        <div class="service-icon teal">🎙️</div>
+        <h3>The Listening Pod</h3>
+        <p>A web app that helps people preserve their precious memories. Capture life stories, cherished moments, and personal histories in a beautiful, lasting format.</p>
+        <a href="https://thelisteningpod.com" target="_blank" rel="noopener" class="service-link">
+          Visit Platform <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-icon teal">🤖</div>
+        <h3>AI Strategy Consulting</h3>
+        <p>Not sure where to start with AI? We help you identify the highest-impact opportunities and build a practical, step-by-step roadmap for your business.</p>
+        <a href="#book-call" class="service-link">
+          Get Started <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEAD MAGNET ═══ -->
+<section id="lead-magnet">
+  <div class="section-container">
+    <div class="lead-magnet-wrapper" data-aos="fade-up" style="flex-direction:column; text-align:center; padding:3rem 2.5rem;">
+      <div class="lead-magnet-text" style="max-width:700px; margin:0 auto;">
+        <span class="free-tag">Free Interactive Tool</span>
+        <h2>Build Your Custom <span style="color:var(--gold)">AI Prompt</span> in Seconds</h2>
+        <p style="text-align:center;">Stop guessing what to type into ChatGPT. Pick your industry, goal, and tone — and we'll generate a ready-to-use AI prompt tailored to your business.</p>
+      </div>
+
+      <!-- PROMPT BUILDER TOOL -->
+      <div id="prompt-builder" style="width:100%; margin-top:2rem;">
+        
+        <!-- Step selectors -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.2rem; margin-bottom:2rem; text-align:left;">
+          
+          <div class="prompt-step-card">
+            <span class="prompt-step-num">1</span>
+            <label class="prompt-step-label">Your Industry</label>
+            <select id="pb-industry" class="prompt-select">
+              <option value="">Select your industry...</option>
+              <option value="care_home">🏥 Care Home</option>
+              <option value="retail">🛍️ Retail</option>
+              <option value="restaurant">🍽️ Restaurant</option>
+              <option value="legal">⚖️ Legal</option>
+              <option value="marketing">📣 Marketing Agency</option>
+              <option value="construction">🏗️ Construction</option>
+              <option value="salon">💇 Salon / Beauty</option>
+              <option value="fitness">💪 Fitness / Gym</option>
+              <option value="property">🏠 Property / Estate Agent</option>
+              <option value="accounting">📊 Accounting / Finance</option>
+            </select>
+          </div>
+
+          <div class="prompt-step-card">
+            <span class="prompt-step-num">2</span>
+            <label class="prompt-step-label">Your Goal</label>
+            <select id="pb-goal" class="prompt-select">
+              <option value="">What do you want AI to help with?</option>
+              <option value="social_post">✍️ Write a Social Media Post</option>
+              <option value="customer_query">💬 Answer a Customer Query</option>
+              <option value="write_email">📧 Write a Professional Email</option>
+              <option value="content_plan">📅 Create a Content Plan</option>
+              <option value="job_advert">📋 Write a Job Advert</option>
+              <option value="blog_post">📝 Write a Blog Post</option>
+              <option value="review_response">⭐ Respond to a Review</option>
+              <option value="sop">📖 Write a Standard Operating Procedure</option>
+            </select>
+          </div>
+
+          <div class="prompt-step-card">
+            <span class="prompt-step-num">3</span>
+            <label class="prompt-step-label">Your Tone</label>
+            <select id="pb-tone" class="prompt-select">
+              <option value="">Choose a tone...</option>
+              <option value="professional">👔 Professional</option>
+              <option value="friendly">😊 Friendly & Warm</option>
+              <option value="urgent">⚡ Urgent & Direct</option>
+              <option value="persuasive">🎯 Persuasive</option>
+              <option value="empathetic">💛 Empathetic & Caring</option>
+              <option value="casual">✌️ Casual & Relaxed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Generate button -->
+        <div style="text-align:center; margin-bottom:2rem;">
+          <button id="pb-generate-btn" class="btn-primary" onclick="generatePrompt()" style="font-size:1.1rem; padding:1.1rem 2.8rem;">
+            ⚡ Generate My Prompt
+          </button>
+        </div>
+
+        <!-- Output area (hidden until prompt is generated) -->
+        <div id="pb-output" style="display:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+            <h3 style="font-family:var(--font-display); font-size:1.3rem; color:#fff; margin:0;">✅ Your Custom AI Prompt</h3>
+            <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+              <button onclick="copyPrompt()" id="pb-copy-btn" style="padding:0.6rem 1.2rem; background:linear-gradient(135deg, var(--teal), var(--teal-light)); color:#fff; border:none; border-radius:50px; font-size:0.85rem; font-weight:600; cursor:pointer;">📋 Copy Prompt</button>
+              <button onclick="resetBuilder()" style="padding:0.6rem 1.2rem; background:transparent; color:var(--text-dim); border:1px solid rgba(255,255,255,0.12); border-radius:50px; font-size:0.85rem; font-weight:500; cursor:pointer;">🔄 Build Another</button>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,215,0,0.15); border-radius:16px; padding:1.8rem; max-height:400px; overflow-y:auto;">
+            <pre id="pb-prompt-text" style="color:#ddd; font-size:0.9rem; line-height:1.8; white-space:pre-wrap; word-break:break-word; font-family:var(--font-body); margin:0;"></pre>
+          </div>
+          <div style="background:rgba(0,109,117,0.1); border:1px solid rgba(0,139,148,0.2); border-radius:14px; padding:1.2rem 1.5rem; margin-top:1.2rem; font-size:0.88rem;">
+            <strong style="color:var(--gold);">💡 How to use this prompt:</strong>
+            <p style="margin:0.5rem 0 0; color:#bbb; line-height:1.7;">Copy the prompt above and paste it into ChatGPT, Claude, or any AI assistant. Replace the parts in [SQUARE BRACKETS] with your own details. The more specific you are, the better the result!</p>
+          </div>
+          <div style="background:linear-gradient(135deg, rgba(0,109,117,0.15), rgba(255,215,0,0.05)); border:1px solid rgba(255,215,0,0.1); border-radius:16px; padding:2rem; margin-top:1.5rem; text-align:center;">
+            <p style="color:#ccc; font-size:1rem; margin:0 0 1rem;">Want us to build custom automations like this for your business?</p>
+            <a href="https://calendar.app.google/ZnN7ixFC7syLGTZ2A" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.95rem; padding:0.85rem 2rem;">📅 Book a Free 30-Minute Call</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GoHighLevel Form Popup (hidden - triggers on first prompt generation) -->
+<iframe
+    src="https://api.leadconnectorhq.com/widget/form/8JJR6P1pzHZurAvuU5bZ"
+    style="display:none;width:100%;height:100%;border:none;border-radius:3px"
+    id="popup-8JJR6P1pzHZurAvuU5bZ" 
+    data-layout="{'id':'POPUP'}"
+    data-trigger-type="alwaysShow"
+    data-trigger-value=""
+    data-activation-type="alwaysActivated"
+    data-activation-value=""
+    data-deactivation-type="leadCollected"
+    data-deactivation-value=""
+    data-form-name="Prompt Builder UKBA"
+    data-height="undefined"
+    data-layout-iframe-id="popup-8JJR6P1pzHZurAvuU5bZ"
+    data-form-id="8JJR6P1pzHZurAvuU5bZ"
+    title="Prompt Builder UKBA"
+        >
+</iframe>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+<!-- ═══ COURSES ═══ -->
+<section id="courses">
+  <div class="section-container">
+    <span class="section-label" data-aos="fade-up">Learn With Us</span>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100"><span style="color:var(--teal-light)">Courses</span> — Coming Soon</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Practical, hands-on courses to help you and your team master business automation and AI tools — no technical background needed.</p>
+    <div class="section-divider" data-aos="fade-up" data-aos-delay="250"></div>
+
+    <div class="courses-preview">
+      <div class="course-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="course-icon">🚀</div>
+        <h3>AI for Business Beginners</h3>
+        <p>A complete introduction to using AI tools in your everyday business operations. No coding, no jargon — just results.</p>
+      </div>
+
+      <div class="course-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="course-icon">🔗</div>
+        <h3>Automation Masterclass</h3>
+        <p>Learn to connect your apps and automate your workflows using tools like Make, Zapier, and custom integrations.</p>
+      </div>
+
+      <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="coming-soon-badge">Coming Soon</div>
+        <div class="course-icon">📈</div>
+        <h3>Scale With AI</h3>
+        <p>Advanced strategies for using AI to scale your business. From content creation to customer service automation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESOURCES & BLOG ═══ -->
+<section id="resources">
+  <div class="section-container">
+    <span class="section-label" data-aos="fade-up">Resources & Blog</span>
+    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Latest <span style="color:var(--gold)">Insights</span></h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Tips, guides, and deep-dives on automation and AI for UK businesses.</p>
+    <div class="section-divider" data-aos="fade-up" data-aos-delay="250"></div>
+
+    <div class="resources-grid">
+      <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="resource-thumb gold-bg">
+          <div class="overlay">💡</div>
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Guide</span>
+          <h3>5 Automations Every Small Business Should Set Up Today</h3>
+          <p>The quickest wins you can implement right now to save time and reduce manual work across your business.</p>
+        </div>
+      </div>
+
+      <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="resource-thumb teal-bg">
+          <div class="overlay">🧠</div>
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Blog</span>
+          <h3>How AI Is Transforming the UK Care Sector</h3>
+          <p>A look at how care providers are using AI to improve documentation, compliance, and resident satisfaction.</p>
+        </div>
+      </div>
+
+      <div class="resource-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="resource-thumb gold-bg">
+          <div class="overlay">🎯</div>
+        </div>
+        <div class="resource-body">
+          <span class="resource-tag">Tutorial</span>
+          <h3>Getting Started With AI Prompts: A Beginner's Guide</h3>
+          <p>Learn how to write effective prompts that get you the exact results you need from any AI assistant.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOOK A CALL CTA ═══ -->
+<section id="book-call">
+  <div class="section-container">
+    <div class="cta-box" data-aos="zoom-in">
+      <h2>Ready to Automate Your Business?</h2>
+      <p>Book a free 30-minute Zoom call. We'll look at where you're spending too much time on manual tasks and show you exactly how automation can help.</p>
+      <a href="https://calendar.app.google/ZnN7ixFC7syLGTZ2A" target="_blank" rel="noopener" class="btn-primary" style="font-size:1.1rem; padding:1.1rem 2.5rem;">
+        📅 Book Your Free 30-Minute Call
+      </a>
+      <div class="cta-features">
+        <span class="cta-feature"><span class="check">✓</span> 100% Free — No Obligation</span>
+        <span class="cta-feature"><span class="check">✓</span> Tailored to Your Business</span>
+        <span class="cta-feature"><span class="check">✓</span> Actionable Advice Guaranteed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">UK Business <span>Automations</span></div>
+        <p>Helping UK businesses save time, cut costs, and scale smarter through intelligent automation and AI solutions.</p>
+        <div class="social-links">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/company/business-marketing-and-automations" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/ukbusinessautomations" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
+          </a>
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@aiforcarehomes" class="social-link" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#courses">Courses</a>
+        <a href="#resources">Resources</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="https://caredocumentationaudit.co.uk" target="_blank" rel="noopener">Care Doc Audit</a>
+        <a href="https://carehomesurveys.online" target="_blank" rel="noopener">Care Home Surveys</a>
+        <a href="#book-call">Workflow Automation</a>
+        <a href="#book-call">AI Consulting</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#book-call">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 UK Business Automations. All rights reserved.</p>
+      <div>
+        <a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+// ─── AOS INIT ───
+AOS.init({
+  duration: 800,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 80
+});
+
+// ─── NAVBAR SCROLL ───
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── HAMBURGER MENU ───
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('active');
+  document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ─── PARTICLE CANVAS ───
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let mouse = { x: null, y: null };
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+canvas.parentElement.addEventListener('mousemove', (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2.5 + 0.5;
+    this.speedX = (Math.random() - 0.5) * 0.5;
+    this.speedY = (Math.random() - 0.5) * 0.5;
+    this.opacity = Math.random() * 0.5 + 0.1;
+    // Mix of gold and teal particles
+    this.color = Math.random() > 0.5
+      ? `rgba(255, 215, 0, ${this.opacity})`
+      : `rgba(0, 139, 148, ${this.opacity})`;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // Mouse interaction
+    if (mouse.x !== null) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 150) {
+        const force = (150 - dist) / 150;
+        this.x -= (dx / dist) * force * 1.5;
+        this.y -= (dy / dist) * force * 1.5;
+      }
+    }
+
+    // Wrap around edges
+    if (this.x < 0) this.x = canvas.width;
+    if (this.x > canvas.width) this.x = 0;
+    if (this.y < 0) this.y = canvas.height;
+    if (this.y > canvas.height) this.y = 0;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+}
+
+// Create particles
+const particleCount = Math.min(120, Math.floor(window.innerWidth / 12));
+for (let i = 0; i < particleCount; i++) {
+  particles.push(new Particle());
+}
+
+function connectParticles() {
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a + 1; b < particles.length; b++) {
+      const dx = particles[a].x - particles[b].x;
+      const dy = particles[a].y - particles[b].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 140) {
+        const opacity = (1 - dist / 140) * 0.12;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(255, 215, 0, ${opacity})`;
+        ctx.lineWidth = 0.5;
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+// ─── SMOOTH SCROLL FOR ANCHOR LINKS ───
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ─── PROMPT BUILDER ───
+const INDUSTRY_CONTEXT = {
+  care_home: "a care home provider in the UK. Your audience includes residents' families, local authorities, CQC inspectors, and potential new residents. You understand person-centred care, safeguarding, and the importance of dignity and respect.",
+  retail: "a retail business in the UK. Your audience includes shoppers, loyal customers, and potential new customers. You understand customer experience, product merchandising, and seasonal trends.",
+  restaurant: "a restaurant or food service business in the UK. Your audience includes diners, food lovers, and local community members. You understand hospitality, food hygiene standards, and creating memorable dining experiences.",
+  legal: "a legal practice in the UK. Your audience includes individuals and businesses seeking legal advice. You understand the importance of clear communication, confidentiality, and building trust with clients.",
+  marketing: "a marketing agency in the UK. Your audience includes business owners and marketing managers looking to grow their brand. You understand digital strategy, content marketing, and ROI-focused campaigns.",
+  construction: "a construction or trades business in the UK. Your audience includes homeowners, property developers, and commercial clients. You understand building regulations, project management, and quality craftsmanship.",
+  salon: "a salon or beauty business in the UK. Your audience includes clients looking for treatments, self-care, and confidence boosts. You understand trends, client relationships, and creating a welcoming atmosphere.",
+  fitness: "a fitness or gym business in the UK. Your audience includes members, fitness enthusiasts, and people starting their health journey. You understand motivation, wellbeing, and creating an inclusive environment.",
+  property: "a property or estate agency business in the UK. Your audience includes buyers, sellers, landlords, and tenants. You understand the property market, local areas, and the emotional journey of moving home.",
+  accounting: "an accounting or financial services business in the UK. Your audience includes small business owners and individuals needing financial guidance. You understand tax regulations, compliance, and making numbers easy to understand."
+};
+
+const TONE_LABELS = {
+  professional: "professional and authoritative",
+  friendly: "friendly and warm",
+  urgent: "urgent and direct",
+  persuasive: "persuasive and compelling",
+  empathetic: "empathetic and caring",
+  casual: "casual and relaxed"
+};
+
+const GOAL_TEMPLATES = {
+  social_post: (ind, tone) => `Write a ${tone} social media post for ${ind}\n\nThe post should:\n- Be engaging and encourage interaction (likes, comments, shares)\n- Be suitable for Facebook, Instagram, or LinkedIn\n- Include a clear call to action\n- Be no longer than 150 words\n- Include 3-5 relevant hashtag suggestions at the end\n\nTopic: [INSERT YOUR TOPIC HERE]\n\nWrite 3 variations of this post so I can choose the best one.`,
+  customer_query: (ind, tone) => `You are a ${tone} customer service representative for ${ind}\n\nA customer has sent the following message:\n"[PASTE CUSTOMER MESSAGE HERE]"\n\nPlease write a helpful response that:\n- Acknowledges their concern straight away\n- Provides a clear and practical answer or next step\n- Maintains a ${tone} tone throughout\n- Keeps the response concise (under 150 words)\n- Ends with an offer for further help\n\nIf the query requires information you don't have, suggest what the customer should do next rather than making something up.`,
+  write_email: (ind, tone) => `Write a ${tone} professional email for ${ind}\n\nContext: [DESCRIBE THE SITUATION AND PURPOSE OF THE EMAIL]\nRecipient: [WHO IS THIS EMAIL TO?]\n\nThe email should:\n- Have a clear, attention-grabbing subject line\n- Get to the point within the first two sentences\n- Be ${tone} in tone throughout\n- Include a specific call to action\n- Be no longer than 200 words\n- End with a professional sign-off\n\nPlease write the complete email including subject line.`,
+  content_plan: (ind, tone) => `Create a 4-week social media content plan for ${ind}\n\nThe content plan should:\n- Cover 3 posts per week (12 posts total)\n- Use a ${tone} tone throughout\n- Include a mix of: educational posts, behind-the-scenes content, promotional posts, and engagement posts\n- For each post, provide: the day, the content type, a brief description, and a caption draft\n- Include relevant hashtag suggestions for each post\n- Be tailored specifically to the UK market\n\nPresent this as a clear, easy-to-follow weekly table.\n\nFocus topic for this month: [INSERT YOUR MONTHLY THEME OR FOCUS]`,
+  job_advert: (ind, tone) => `Write a ${tone} job advert for ${ind}\n\nRole: [JOB TITLE]\nLocation: [LOCATION]\nSalary: [SALARY OR RANGE]\nHours: [FULL-TIME/PART-TIME/FLEXIBLE]\n\nThe job advert should:\n- Open with an engaging hook that sells the role and company\n- Clearly list key responsibilities (5-7 bullet points)\n- List essential and desirable requirements separately\n- Highlight benefits and what makes this a great place to work\n- Be ${tone} in tone to attract the right candidates\n- Include a clear call to action for how to apply\n- Be compliant with UK employment advertising standards\n\nKeep the total length under 400 words.`,
+  blog_post: (ind, tone) => `Write a ${tone} blog post for ${ind}\n\nTopic: [INSERT YOUR BLOG TOPIC HERE]\nTarget audience: [WHO IS THIS FOR?]\n\nThe blog post should:\n- Be between 600-800 words\n- Have an attention-grabbing headline and opening paragraph\n- Be broken into clear sections with subheadings\n- Include practical, actionable advice\n- Use a ${tone} tone throughout\n- End with a clear call to action\n- Be written for a UK audience\n- Be SEO-friendly with natural keyword usage\n\nAlso provide:\n- 3 alternative headline options\n- A meta description (under 160 characters)\n- 5 suggested tags or categories`,
+  review_response: (ind, tone) => `You are responding to an online review for ${ind}\n\nThe review says:\n"[PASTE THE REVIEW HERE]"\nRating: [NUMBER OF STARS]\n\nWrite a ${tone} response that:\n- Thanks the reviewer by name if provided\n- Addresses specific points they raised\n- If positive: reinforces the positive experience and invites them back\n- If negative: acknowledges the concern, apologises sincerely, and offers a resolution\n- Keeps the response under 100 words\n- Maintains professionalism regardless of the review tone\n- Does NOT offer discounts or freebies publicly\n\nWrite the response ready to post.`,
+  sop: (ind, tone) => `Create a Standard Operating Procedure (SOP) document for ${ind}\n\nProcedure name: [NAME OF THE PROCESS]\nDepartment: [WHICH TEAM/DEPARTMENT]\n\nThe SOP should:\n- Have a clear title and purpose statement\n- List any required equipment, materials, or access needed\n- Provide step-by-step instructions that anyone could follow\n- Use simple, clear language (avoid jargon)\n- Include any health & safety considerations relevant to the UK\n- Note who is responsible for each step where relevant\n- Include a review date and version number\n- Be written in a ${tone} tone\n\nFormat this as a professional document ready to be used.`
+};
+
+// Track whether email has been collected
+let emailCollected = false;
+
+// Listen for GoHighLevel form submission
+window.addEventListener('message', function(event) {
+  if (event.data && (event.data.type === 'form:submit' || event.data === 'form_submitted')) {
+    emailCollected = true;
+    // If a prompt was pending, generate it now
+    if (window.pendingPromptGeneration) {
+      window.pendingPromptGeneration = false;
+      actuallyGeneratePrompt();
+    }
+  }
+});
+
+function generatePrompt() {
+  const industry = document.getElementById('pb-industry');
+  const goal = document.getElementById('pb-goal');
+  const tone = document.getElementById('pb-tone');
+
+  // Validate selections
+  if (!industry.value) { shakeSelect(industry); return; }
+  if (!goal.value) { shakeSelect(goal); return; }
+  if (!tone.value) { shakeSelect(tone); return; }
+
+  // If email not collected yet, trigger the GoHighLevel popup
+  if (!emailCollected) {
+    window.pendingPromptGeneration = true;
+    // Trigger the GHL popup by dispatching a click or letting it show
+    const popup = document.getElementById('popup-8JJR6P1pzHZurAvuU5bZ');
+    if (popup) {
+      popup.style.display = 'block';
+      // Also try triggering the form embed script
+      try {
+        window.dispatchEvent(new Event('scroll'));
+      } catch(e) {}
+    }
+    // Also generate the prompt after a short delay as backup
+    // (in case user closes popup or form doesn't send message event)
+    setTimeout(function() {
+      if (!document.getElementById('pb-output').style.display || document.getElementById('pb-output').style.display === 'none') {
+        actuallyGeneratePrompt();
+      }
+    }, 500);
+    return;
+  }
+
+  actuallyGeneratePrompt();
+}
+
+function actuallyGeneratePrompt() {
+  const industry = document.getElementById('pb-industry').value;
+  const goal = document.getElementById('pb-goal').value;
+  const tone = document.getElementById('pb-tone').value;
+
+  if (!industry || !goal || !tone) return;
+
+  const btn = document.getElementById('pb-generate-btn');
+  btn.textContent = '⏳ Building your prompt...';
+  btn.style.opacity = '0.7';
+  btn.style.pointerEvents = 'none';
+
+  setTimeout(function() {
+    const industryContext = INDUSTRY_CONTEXT[industry];
+    const toneLabel = TONE_LABELS[tone];
+    const template = GOAL_TEMPLATES[goal](industryContext, toneLabel);
+    const fullPrompt = 'You are an expert AI assistant working for ' + industryContext + '\n\n' + template;
+
+    document.getElementById('pb-prompt-text').textContent = fullPrompt;
+    document.getElementById('pb-output').style.display = 'block';
+    document.getElementById('pb-output').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    btn.textContent = '⚡ Generate My Prompt';
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = 'auto';
+  }, 1000);
+}
+
+function shakeSelect(el) {
+  el.classList.add('shake');
+  setTimeout(function() { el.classList.remove('shake'); }, 600);
+}
+
+function copyPrompt() {
+  const text = document.getElementById('pb-prompt-text').textContent;
+  const btn = document.getElementById('pb-copy-btn');
+  
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = '✓ Copied!';
+      setTimeout(function() { btn.textContent = '📋 Copy Prompt'; }, 2500);
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✓ Copied!';
+    setTimeout(function() { btn.textContent = '📋 Copy Prompt'; }, 2500);
+  }
+}
+
+function resetBuilder() {
+  document.getElementById('pb-industry').value = '';
+  document.getElementById('pb-goal').value = '';
+  document.getElementById('pb-tone').value = '';
+  document.getElementById('pb-output').style.display = 'none';
+  document.getElementById('pb-prompt-text').textContent = '';
+}
+
+// Update select border colour when a value is chosen
+document.querySelectorAll('.prompt-select').forEach(function(sel) {
+  sel.addEventListener('change', function() {
+    if (this.value) {
+      this.style.borderColor = 'var(--gold)';
+    } else {
+      this.style.borderColor = 'rgba(255,255,255,0.1)';
+    }
+  });
+});
+</script>
+</body>
+</html>
