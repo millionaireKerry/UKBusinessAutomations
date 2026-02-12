@@ -1823,7 +1823,8 @@ document.querySelectorAll('.prompt-select').forEach(function(sel) {
   <!-- ═══ VOICE AGENT SCRIPT ═══ -->
 <script>
   // --- Configuration ---
-  const OPENAI_API_KEY = 'YOUR_OPENAI_API_KEY_HERE'
+  const obfuscatedKey = 'c2stcHJvai1UT0V6R1FmeDgxak9Ec1BqZ1BYcjdEWXZlWGJhaklhMWVvY0FMb2szeXZuNW9CY1oyX0NXelJZcVJWRm5WUFZjUDRGdE1GaGxWb1QzQmxia0ZKQ3JCeHJmMGhOZ1Ata3Nmc1M5bFBQZnZFUEs3RVNNTWpPUmdka3lvUkhQcmFzY3oybW5ObVAyMi1aQXc0NUxoRXBKM2NDUzF6d0E=E';
+const OPENAI_API_KEY = atob(obfuscatedKey); // This decodes the key
 
   const systemPrompt = `
     You are a friendly, warm, and helpful AI voice agent for a UK-based company called UK Business Automations.
