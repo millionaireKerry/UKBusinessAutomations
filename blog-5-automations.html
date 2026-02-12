@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Automations Every Small Business Should Set Up Today | UK Business Automations</title>
+<meta name="description" content="Five simple automations that any small business can set up to save time, reduce mistakes, and free up your team to focus on what actually matters.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #bc9c22;
+  --gold-dim: #9a7f1a;
+  --gold-glow: rgba(188, 156, 34, 0.15);
+  --teal: #091e27;
+  --teal-light: #48F0e7;
+  --teal-glow: rgba(72, 240, 231, 0.25);
+  --bg: #0a0a0a;
+  --bg-card: #111111;
+  --text: #e8e8e8;
+  --text-dim: #999;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(188, 156, 34, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo { text-decoration: none; }
+.nav-logo img { height: 40px; vertical-align: middle; }
+.nav-back {
+  color: var(--teal-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-back:hover { color: var(--gold); }
+
+/* ── HERO IMAGE ── */
+.blog-hero {
+  width: 100%;
+  max-height: 450px;
+  overflow: hidden;
+  margin-top: 70px;
+}
+.blog-hero img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+}
+.blog-hero-placeholder {
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+.blog-hero-placeholder span {
+  font-size: 3rem;
+  opacity: 0.3;
+}
+
+/* ── ARTICLE ── */
+article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.blog-tag {
+  display: inline-block;
+  background: rgba(188, 156, 34, 0.15);
+  color: var(--gold);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+}
+
+article h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.blog-meta {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(188, 156, 34, 0.12);
+}
+
+article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 2.5rem 0 1rem;
+}
+
+article h2 .number {
+  color: var(--gold);
+  margin-right: 0.3rem;
+}
+
+article p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+article strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.highlight-box {
+  background: rgba(72, 240, 231, 0.06);
+  border-left: 3px solid var(--teal-light);
+  padding: 1.2rem 1.5rem;
+  border-radius: 0 10px 10px 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.highlight-box strong {
+  color: var(--teal-light);
+}
+
+/* ── CTA BOX ── */
+.blog-cta {
+  background: linear-gradient(135deg, rgba(72, 240, 231, 0.08), rgba(188, 156, 34, 0.05));
+  border: 1px solid rgba(188, 156, 34, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+.blog-cta h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+.blog-cta p {
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--teal-glow);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(188, 156, 34, 0.1);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+footer a {
+  color: var(--teal-light);
+  text-decoration: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  article h1 { font-size: 1.8rem; }
+  article h2 { font-size: 1.3rem; }
+  article { padding: 2rem 1.2rem 3rem; }
+  .blog-cta { padding: 1.5rem; }
+  .blog-hero img { height: 250px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/nav-logo.png" alt="UK Business Automations"></a>
+  <a href="index.html#resources" class="nav-back">← Back to Blog</a>
+</nav>
+
+<!-- HERO IMAGE -->
+<div class="blog-hero">
+  <img src="images/blog-5-automations.png" alt="5 automations every small business should implement — blog header showing charts, email icons, a chatbot, and calendar on a tablet screen with gold and teal branding for UK Business Automations">
+  <!-- <div class="blog-hero-placeholder"><span>💡</span></div> -->
+</div>
+
+<!-- ARTICLE -->
+<article>
+  <span class="blog-tag">Guide</span>
+  <h1>5 Automations Every Small Business Should Set Up Today</h1>
+  <div class="blog-meta">By Kerry | UK Business Automations · 5 min read</div>
+
+  <p>If you're running a small business, chances are you're juggling a hundred different things at once. Answering enquiries, sending invoices, chasing follow-ups, posting on social media — the list never ends. And most of it isn't the work you actually started your business to do.</p>
+
+  <p>The good news? A lot of those repetitive, time-draining tasks can run themselves. You don't need to be technical, and you don't need a massive budget. Here are five automations that any small business can set up to claw back hours every single week.</p>
+
+  <h2><span class="number">1.</span> Automatic Enquiry Responses</h2>
+
+  <p>We've all been there — someone fills in your contact form or sends a message through Facebook, and by the time you get round to replying, they've already gone elsewhere. Speed matters, especially when people are comparing a few different businesses at the same time.</p>
+
+  <p>Setting up an automatic reply means every enquiry gets an instant, professional response. It doesn't have to be anything fancy — just a warm message confirming you've received their enquiry, what to expect next, and roughly when you'll be in touch properly.</p>
+
+  <div class="highlight-box">
+    <strong>What this saves you:</strong> No more missed leads sitting in your inbox. Your potential customers feel looked after from the very first moment, even when you're busy, on a call, or it's half past ten at night.
+  </div>
+
+  <h2><span class="number">2.</span> Invoice and Payment Reminders</h2>
+
+  <p>Chasing payments is nobody's favourite job. It's awkward, it takes time, and it's easy to let it slip — which means your cash flow suffers. The reality is, most late payments aren't because someone doesn't want to pay. They've just forgotten.</p>
+
+  <p>Automating your invoicing means your invoices go out the moment a job is done, and polite reminders follow up automatically if payment hasn't landed. You set the timing — maybe a gentle nudge after seven days, a firmer reminder after fourteen — and then you never have to think about it again.</p>
+
+  <div class="highlight-box">
+    <strong>What this saves you:</strong> Hours of awkward chasing every month, and a much healthier cash flow. Most businesses see their average payment time drop significantly once reminders are automated.
+  </div>
+
+  <h2><span class="number">3.</span> Social Media Scheduling</h2>
+
+  <p>Posting regularly on social media is one of those things everyone knows they should do, but it always seems to fall to the bottom of the list. Then you end up doing a mad rush of posts on a Monday morning and nothing for the rest of the week.</p>
+
+  <p>With a scheduling tool, you can sit down once a week (or even once a month) and plan out all your posts in one go. Write them, pick your images, set the times, and they'll publish themselves across your platforms without you lifting a finger.</p>
+
+  <div class="highlight-box">
+    <strong>What this saves you:</strong> That daily "I really should post something" guilt. Instead of scrambling for content every day, you batch it all in one focused session and then get on with your actual work.
+  </div>
+
+  <h2><span class="number">4.</span> Appointment Booking</h2>
+
+  <p>If your business involves any kind of meetings, consultations, or appointments, you'll know the back-and-forth dance all too well. "Are you free Tuesday?" "How about Thursday afternoon?" "Actually, can we do the following week?" It's exhausting for everyone.</p>
+
+  <p>An online booking system lets people see your availability and book a slot themselves, right there and then. It syncs with your calendar, sends them a confirmation, and even pops a reminder to both of you before the appointment. No more double-bookings, no more no-shows, no more endless email tennis.</p>
+
+  <div class="highlight-box">
+    <strong>What this saves you:</strong> All that time spent going back and forth arranging meetings. Your customers get a smoother experience, and your diary stays organised without any effort from you.
+  </div>
+
+  <h2><span class="number">5.</span> New Customer Welcome Sequence</h2>
+
+  <p>When someone becomes a new customer, the first few days are crucial. It's when they're most excited, most engaged, and most likely to form a lasting impression of your business. But when you're busy, it's easy for that welcome experience to be a bit… nothing.</p>
+
+  <p>An automated welcome sequence sends a series of emails over the first week or two — introducing your business properly, sharing helpful tips, pointing them to useful resources, and making them feel genuinely valued. It runs entirely on its own, but it feels personal and thoughtful.</p>
+
+  <div class="highlight-box">
+    <strong>What this saves you:</strong> You create it once and every single new customer gets the same brilliant first impression. It builds trust, reduces early drop-off, and often leads to more repeat business and referrals.
+  </div>
+
+  <h2>Where to Start</h2>
+
+  <p>You don't need to tackle all five at once. Pick the one that would make the biggest difference to your day right now — for most people, that's either the enquiry responses or the invoice reminders — and start there. Once you see how much time it frees up, you'll wonder why you didn't do it sooner.</p>
+
+  <p>And if you're not sure where to begin, or you'd like someone to set these up for you properly, that's exactly what we do. We'll have a chat about how your business works, figure out where you're losing the most time, and build automations that actually fit the way you operate.</p>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <h3>Want These Set Up For Your Business?</h3>
+    <p>Book a free 30-minute call and we'll work out which automations would save you the most time.</p>
+    <a href="https://calendar.app.google/ZnN7ixFC7syLGTZ2A" target="_blank" rel="noopener" class="btn-primary">📅 Book Your Free Call</a>
+  </div>
+
+</article>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 UK Business Automations. All rights reserved. · <a href="index.html">Back to Home</a></p>
+</footer>
+
+</body>
+</html>

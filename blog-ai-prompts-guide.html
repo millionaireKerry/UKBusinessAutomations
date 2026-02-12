@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting Started With AI Prompts: A Beginner's Guide | UK Business Automations</title>
+<meta name="description" content="A plain-English guide to writing AI prompts that actually work. No tech speak, no jargon — just practical tips for getting better results from any AI tool.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #bc9c22;
+  --gold-dim: #9a7f1a;
+  --gold-glow: rgba(188, 156, 34, 0.15);
+  --teal: #091e27;
+  --teal-light: #48F0e7;
+  --teal-glow: rgba(72, 240, 231, 0.25);
+  --bg: #0a0a0a;
+  --bg-card: #111111;
+  --text: #e8e8e8;
+  --text-dim: #999;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(188, 156, 34, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo { text-decoration: none; }
+.nav-logo img { height: 40px; vertical-align: middle; }
+.nav-back {
+  color: var(--teal-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.nav-back:hover { color: var(--gold); }
+
+.blog-hero {
+  width: 100%;
+  max-height: 450px;
+  overflow: hidden;
+  margin-top: 70px;
+}
+.blog-hero img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+}
+.blog-hero-placeholder {
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+.blog-hero-placeholder span {
+  font-size: 3rem;
+  opacity: 0.3;
+}
+
+article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.blog-tag {
+  display: inline-block;
+  background: rgba(188, 156, 34, 0.15);
+  color: var(--gold);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+}
+
+article h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.blog-meta {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(188, 156, 34, 0.12);
+}
+
+article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 2.5rem 0 1rem;
+}
+
+article p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+article strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.prompt-example {
+  background: rgba(188, 156, 34, 0.08);
+  border: 1px solid rgba(188, 156, 34, 0.15);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--gold);
+}
+
+.prompt-example .label {
+  display: block;
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: var(--text-dim);
+}
+
+.highlight-box {
+  background: rgba(72, 240, 231, 0.06);
+  border-left: 3px solid var(--teal-light);
+  padding: 1.2rem 1.5rem;
+  border-radius: 0 10px 10px 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.highlight-box strong {
+  color: var(--teal-light);
+}
+
+.vs-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.vs-bad, .vs-good {
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+.vs-bad {
+  background: rgba(255, 80, 80, 0.08);
+  border: 1px solid rgba(255, 80, 80, 0.15);
+  color: #ff9999;
+}
+.vs-good {
+  background: rgba(72, 240, 231, 0.08);
+  border: 1px solid rgba(72, 240, 231, 0.15);
+  color: var(--teal-light);
+}
+.vs-bad .label, .vs-good .label {
+  display: block;
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+.vs-bad .label { color: #ff6666; }
+.vs-good .label { color: var(--teal-light); }
+
+.blog-cta {
+  background: linear-gradient(135deg, rgba(72, 240, 231, 0.08), rgba(188, 156, 34, 0.05));
+  border: 1px solid rgba(188, 156, 34, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+.blog-cta h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+.blog-cta p {
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--teal-glow);
+}
+
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(188, 156, 34, 0.1);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+footer a {
+  color: var(--teal-light);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  article h1 { font-size: 1.8rem; }
+  article h2 { font-size: 1.3rem; }
+  article { padding: 2rem 1.2rem 3rem; }
+  .blog-cta { padding: 1.5rem; }
+  .blog-hero img { height: 250px; }
+  .vs-box { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/nav-logo.png" alt="UK Business Automations"></a>
+  <a href="index.html#resources" class="nav-back">← Back to Blog</a>
+</nav>
+
+<div class="blog-hero">
+  <img src="images/blog-ai-prompts-guide.png" alt="Getting started with AI prompts — a beginner's guide blog header showing a robot arm with a question mark, a tablet displaying prompt suggestions, and gold and teal branding for UK Business Automations">
+  <!-- <div class="blog-hero-placeholder"><span>🎯</span></div> -->
+</div>
+
+<article>
+  <span class="blog-tag">Tutorial</span>
+  <h1>Getting Started With AI Prompts: A Beginner's Guide</h1>
+  <div class="blog-meta">By Kerry | UK Business Automations · 5 min read</div>
+
+  <p>If you've ever typed something into ChatGPT or another AI tool and thought "well, that wasn't what I wanted at all," you're not alone. The thing is, AI is a bit like a very eager, very literal assistant. It'll do exactly what you ask — the trick is learning how to ask properly.</p>
+
+  <p>This guide is for complete beginners. No tech background needed. By the end, you'll know how to write prompts that get you genuinely useful results, every single time.</p>
+
+  <h2>What Actually Is a Prompt?</h2>
+
+  <p>A prompt is just the instruction you give to an AI tool. It's the message you type in the box. That's it. Nothing fancy, nothing technical — it's simply you telling the AI what you'd like it to do.</p>
+
+  <p>The quality of what you get back depends almost entirely on how you write that instruction. A vague prompt gets you a vague answer. A clear, specific prompt gets you something you can actually use.</p>
+
+  <h2>The Golden Rule: Be Specific</h2>
+
+  <p>This is the single most important thing to remember. The more detail you give, the better the result. Think of it like giving directions to someone who's never been to your town — "it's near the shops" isn't going to cut it, but "turn left at the Tesco, then it's the third house on the right" will get them there.</p>
+
+  <div class="vs-box">
+    <div class="vs-bad">
+      <span class="label">Vague prompt</span>
+      "Write me a social media post"
+    </div>
+    <div class="vs-good">
+      <span class="label">Specific prompt</span>
+      "Write a friendly Instagram post for my dog grooming salon in Leeds, promoting our new puppy pamper package. Keep it under 150 words and include a call to action to book online."
+    </div>
+  </div>
+
+  <p>See the difference? The second prompt tells the AI who you are, what platform it's for, what you're promoting, the tone you want, the length, and what you'd like people to do. It's got everything the AI needs to give you something brilliant.</p>
+
+  <h2>Tell It Who to Be</h2>
+
+  <p>One of the best tricks for getting great results is to tell the AI what role to play. It completely changes the style and quality of what you get back.</p>
+
+  <div class="prompt-example">
+    <span class="label">Example</span>
+    "You are an experienced social media manager who specialises in small UK businesses. Write me a week's worth of Facebook posts for my bakery in Bristol."
+  </div>
+
+  <p>By giving it a role, you're setting the tone and the level of expertise. You can tell it to be a marketing expert, a friendly customer service rep, a formal business consultant — whatever fits what you need.</p>
+
+  <h2>Give It Context About Your Business</h2>
+
+  <p>The AI doesn't know anything about your business unless you tell it. The more background you share, the more relevant and on-brand the results will be.</p>
+
+  <div class="prompt-example">
+    <span class="label">Example</span>
+    "I run a small physiotherapy clinic in Manchester. We mainly treat sports injuries and work with local rugby and football clubs. Our tone is professional but approachable — we want people to feel comfortable, not intimidated. Write me a blog post about the five most common running injuries and how to prevent them."
+  </div>
+
+  <p>Now the AI knows your industry, your location, your audience, and your brand voice. The blog post it writes will feel like it actually came from your clinic, not from a random content mill.</p>
+
+  <h2>Ask for What You Don't Want</h2>
+
+  <p>This is a trick that a lot of people miss. As well as telling the AI what you do want, tell it what you don't want. It's really effective at steering the results in the right direction.</p>
+
+  <div class="prompt-example">
+    <span class="label">Example</span>
+    "Write me a product description for our handmade candles. Keep the tone warm and personal. Don't use any clichés like 'treat yourself' or 'you deserve it.' Don't make it sound like a big corporate brand — we're a small family business."
+  </div>
+
+  <p>Those "don't" instructions act like guardrails. They stop the AI from going down the obvious, generic path and push it towards something that actually sounds like you.</p>
+
+  <h2>Break Big Tasks Into Steps</h2>
+
+  <p>If you need something complex, don't try to cram it all into one massive prompt. Break it into steps and build on each one. It's like cooking a meal — you wouldn't throw everything in the pan at once.</p>
+
+  <p>For example, if you want a full email marketing sequence, start with the first email. Get that right. Then say "now write the follow-up email that goes out three days later, building on the first one." The AI remembers what you've already discussed and builds on it naturally.</p>
+
+  <div class="highlight-box">
+    <strong>Top tip:</strong> If the AI gives you something that's almost right but not quite, don't start again from scratch. Just tell it what to change. "That's good, but make the tone a bit more casual" or "shorten it by half" or "add a section about pricing." It'll adjust without losing the good bits.
+  </div>
+
+  <h2>The Magic Phrase: "Write in the Style of..."</h2>
+
+  <p>If you know the kind of tone you want but can't quite describe it, this phrase is your best friend. You can reference a general style rather than a specific person.</p>
+
+  <div class="prompt-example">
+    <span class="label">Example</span>
+    "Write this in the style of a friendly, down-to-earth business blog — like something you'd read on a small company's website, not a corporate news release."
+  </div>
+
+  <p>It's a shortcut that saves you having to explain every detail of the tone you're after.</p>
+
+  <h2>Don't Forget to Proofread</h2>
+
+  <p>AI is brilliant at getting you 90% of the way there, but it's not perfect. Always read through what it gives you and tweak anything that doesn't sound quite right. Add your own personality, fix any details it got wrong, and make sure it actually sounds like something you'd say.</p>
+
+  <p>Think of AI as a first draft machine. It does the heavy lifting, and you do the finishing touches. That's the sweet spot.</p>
+
+  <h2>Give It a Go</h2>
+
+  <p>The best way to get better at prompts is to practise. Try our free <a href="index.html#lead-magnet" style="color: var(--teal-light);">AI Prompt Builder</a> tool on our homepage — it'll help you put together effective prompts for your specific industry and goals, even if you've never used AI before.</p>
+
+  <div class="blog-cta">
+    <h3>Want Help Getting Started With AI?</h3>
+    <p>Book a free 30-minute call and we'll show you how AI can work for your specific business — no tech speak, just practical advice.</p>
+    <a href="https://calendar.app.google/ZnN7ixFC7syLGTZ2A" target="_blank" rel="noopener" class="btn-primary">📅 Book Your Free Call</a>
+  </div>
+
+</article>
+
+<footer>
+  <p>&copy; 2025 UK Business Automations. All rights reserved. · <a href="index.html">Back to Home</a></p>
+</footer>
+
+</body>
+</html>
