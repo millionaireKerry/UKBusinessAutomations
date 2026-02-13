@@ -2076,8 +2076,14 @@ The main goal of every conversation should be to encourage the visitor to **book
       const aiResponseText = data.choices[0].message.content;
       conversationHistory.push({ role: 'assistant', content: aiResponseText });
       
+            // Speak the response. After speaking, decide whether to listen again.
       speak(aiResponseText, () => {
         voiceAgentButton.style.backgroundColor = '#007bff'; // Back to blue
+        // CHECK IF THE AGENT ASKED A QUESTION
+        if (aiResponseText.trim().endsWith('?')) {
+          // If it did, automatically start listening for the user's answer.
+          startListening();
+        }
       });
 
     } catch (error) {
