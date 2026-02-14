@@ -790,6 +790,34 @@ section {
   box-shadow: 0 12px 40px rgba(16, 185, 129, 0.2);
 }
 
+/* Bundle Card Styling */
+.bundle-card {
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, rgba(188, 156, 34, 0.05) 0%, rgba(72, 240, 231, 0.05) 100%);
+}
+
+.bundle-card::before {
+  opacity: 1;
+}
+
+.bundle-badge {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: #0a0a0a;
+  font-weight: 700;
+}
+
+.bundle-price {
+  font-size: 2.2rem !important;
+  color: var(--gold) !important;
+}
+
+.course-price-old {
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .courses-grid {
@@ -1724,7 +1752,7 @@ section {
     <li><a href="#hero">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#courses">Courses</a></li>
-    <li><a href="#resources">Resources</a></li>
+    <li><a href="resources.html">Resources</a></li>
     <li><a href="#resources">Blog</a></li>
     <li><a href="#book-call" class="nav-cta">Book a Call</a></li>
   </ul>
@@ -1738,7 +1766,7 @@ section {
   <a href="#hero" onclick="closeMobile()">Home</a>
   <a href="#services" onclick="closeMobile()">Services</a>
   <a href="#courses" onclick="closeMobile()">Courses</a>
-  <a href="#resources" onclick="closeMobile()">Resources</a>
+  <a href="resources.html" onclick="closeMobile()">Resources</a>
   <a href="#resources" onclick="closeMobile()">Blog</a>
   <a href="#book-call" class="btn-primary" onclick="closeMobile()">Book a Call</a>
 </div>
@@ -1986,7 +2014,7 @@ section {
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <span class="section-label">LEARN WITH US</span>
-      <h2>Courses</h2>
+      <h2>Business Courses</h2>
       <p>Practical, hands-on courses to help you and your team master business automation and AI tools — no technical background needed.</p>
       <div class="section-divider"></div>
     </div>
@@ -2009,7 +2037,7 @@ section {
           </ul>
           <div class="course-footer">
             <span class="course-price">£47</span>
-            <a href="YOUR_STRIPE_LINK_FOR_AI_BEGINNERS" class="btn-primary" target="_blank" rel="noopener">
+            <a href="https://buy.stripe.com/3cIdR8bnn9n61gtfXRdQQ08" class="btn-primary" target="_blank" rel="noopener">
               Enrol Now
             </a>
           </div>
@@ -2031,8 +2059,8 @@ section {
             <li>✓ Live examples</li>
           </ul>
           <div class="course-footer">
-            <span class="course-price">£97</span>
-            <a href="YOUR_STRIPE_LINK_FOR_AUTOMATION" class="btn-primary" target="_blank" rel="noopener">
+            <span class="course-price">£47</span>
+            <a href="https://buy.stripe.com/6oUeVc0IJ6aU0cpbHBdQQ07" class="btn-primary" target="_blank" rel="noopener">
               Enrol Now
             </a>
           </div>
@@ -2054,9 +2082,32 @@ section {
             <li>✓ Case studies</li>
           </ul>
           <div class="course-footer">
-            <span class="course-price">£147</span>
-            <a href="YOUR_STRIPE_LINK_FOR_SCALE_WITH_AI" class="btn-primary" target="_blank" rel="noopener">
+            <span class="course-price">£47</span>
+            <a href="https://buy.stripe.com/7sY28q9ff1UE1gtdPJdQQ06" class="btn-primary" target="_blank" rel="noopener">
               Enrol Now
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- BUSINESS BUNDLE -->
+      <div class="course-card bundle-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="course-image">
+          <img src="/images/business-bundle.png" alt="Business Bundle - All 3 Courses">
+        </div>
+        <div class="course-content">
+          <span class="course-badge bundle-badge">BEST VALUE</span>
+          <h3>Business Bundle</h3>
+          <p>Get all three business courses together and save £42. Everything you need to master AI and automation for your business.</p>
+          <ul class="course-features">
+            <li>✓ All 3 courses included</li>
+            <li>✓ Save £42 vs individual</li>
+            <li>✓ Lifetime access</li>
+          </ul>
+          <div class="course-footer">
+            <span class="course-price bundle-price">£99</span>
+            <span class="course-price-old">£141</span>
+            <a href="https://buy.stripe.com/fZu7sK8bbdDm8IVaDxdQQ04" class="btn-primary" target="_blank" rel="noopener">
+              Get Bundle
             </a>
           </div>
         </div>
@@ -2244,7 +2295,7 @@ section {
         <a href="#hero">Home</a>
         <a href="#services">Services</a>
         <a href="#courses">Courses</a>
-        <a href="#resources">Resources</a>
+        <a href="resources.html">Resources</a>
       </div>
 
       <div class="footer-col">
