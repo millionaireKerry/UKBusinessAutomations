@@ -1,0 +1,11 @@
+# robots.txt for ukbusinessautomations.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ukbusinessautomations.com/sitemap.xml
+
+# Disallow course delivery pages from search engines
+Disallow: /thankyou-*.html
+Disallow: /courses/
