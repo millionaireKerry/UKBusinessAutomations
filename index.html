@@ -49,17 +49,18 @@ body {
 }
 
 .modal-content {
-  background: var(--bg-card);
-  padding: 2rem 2.5rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.1);
+  .modal-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 2.5rem;
+  border-radius: 16px;
   max-width: 800px;
   width: 90%;
   position: relative;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  animation: modal-fade-in 0.4s ease-out;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  max-height: 90vh;
+  overflow-y: auto;
 }
-
 @keyframes modal-fade-in {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
