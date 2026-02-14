@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HSR8VEQMJF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HSR8VEQMJF');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UK Business Automations | AI-Powered Solutions for UK Businesses</title>
@@ -1863,6 +1872,7 @@ section {
     <li><a href="#courses">Courses</a></li>
     <li><a href="resources.html">Resources</a></li>
     <li><a href="#blog">Blog</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="#book-call" class="nav-cta">Book a Call</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -2303,6 +2313,210 @@ section {
 </section>
 
 <!-- ═══ CONTACT SECTION ═══ -->
+
+<!-- ═══ FAQ SECTION ═══ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about AI automation for your business</p>
+    </div>
+
+    <div class="faq-container">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-question">
+          <h3>What is AI automation and how can it help my business?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>AI automation uses artificial intelligence to handle repetitive tasks, streamline workflows, and provide data-driven insights. It can help your business by:</p>
+          <ul>
+            <li><strong>Saving time:</strong> Automate tasks like email responses, social media scheduling, and data entry.</li>
+            <li><strong>Reducing costs:</strong> Lower your operational expenses by automating manual processes.</li>
+            <li><strong>Improving efficiency:</strong> Get more done with fewer resources.</li>
+            <li><strong>Scaling smarter:</strong> Grow your business without a proportional increase in workload.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="faq-question">
+          <h3>I'm not tech-savvy. Is AI automation right for me?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely! Our solutions are designed for business owners, not tech experts. We handle all the technical setup and provide you with simple, intuitive tools that are easy to use. If you can use a computer, you can use our automations.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="faq-question">
+          <h3>What kind of businesses do you work with?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We work with a wide range of UK businesses, from solo entrepreneurs and startups to established small and medium-sized enterprises. Our solutions are particularly beneficial for service-based businesses, e-commerce stores, and anyone looking to improve their marketing and customer service.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="faq-question">
+          <h3>How much does it cost?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>We offer a range of solutions to fit different budgets. Our services include:</p>
+          <ul>
+            <li><strong>Pre-built courses:</strong> Affordable, self-paced learning from £47.</li>
+            <li><strong>Done-for-you services:</strong> Custom automation solutions tailored to your specific needs.</li>
+            <li><strong>Consulting:</strong> Strategic guidance to help you leverage AI for growth.</li>
+          </ul>
+          <p>We recommend starting with a free consultation to discuss your needs and get a custom quote.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+        <div class="faq-question">
+          <h3>How do I get started?</h3>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Getting started is easy! Simply book a free, no-obligation consultation with us. We'll discuss your business, identify opportunities for automation, and recommend a solution that's right for you. There's no pressure to buy - just a friendly chat to see how we can help.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ─── FAQ STYLES ─── */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  border-color: var(--gold);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.1);
+}
+
+.faq-question {
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faq-question h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--text);
+  margin: 0;
+  flex: 1;
+}
+
+.faq-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 300;
+  transition: transform 0.3s;
+  margin-left: 1rem;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding: 0 2rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 1000px;
+  padding: 0 2rem 1.5rem;
+}
+
+.faq-answer p {
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.faq-answer ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.faq-answer ul li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--text-dim);
+}
+
+.faq-answer ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .faq-question {
+    padding: 1.2rem 1.5rem;
+  }
+  
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+  
+  .faq-answer {
+    padding: 0 1.5rem;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.2rem;
+  }
+}
+</style>
+
+<script>
+// FAQ Accordion functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      // Close other items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Toggle current item
+      item.classList.toggle('active');
+    });
+  });
+});
+</script>
 <section id="contact" class="contact-section">
   <div class="container">
     <div class="contact-header" data-aos="fade-up">
