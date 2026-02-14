@@ -968,6 +968,151 @@ section {
 }
 
 /* ─── FOOTER ─── */
+/* ─── CONTACT SECTION ─── */
+.contact-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  position: relative;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(188, 156, 34, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.contact-header p {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form-success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.form-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.btn-submit {
+  width: 100%;
+  justify-content: center;
+  font-size: 1.1rem;
+  padding: 1.1rem 2rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .contact-form-wrapper {
+    padding: 2rem 1.5rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
 .footer {
   background: #060606;
   border-top: 1px solid rgba(255,255,255,0.04);
@@ -1853,6 +1998,76 @@ section {
         <div class="course-image">
           <img src="/images/ai-for-business-beginners.png" alt="AI for Business Beginners Course">
         </div>
+<!-- ═══ CONTACT SECTION ═══ -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-header" data-aos="fade-up">
+      <h2>Get In Touch</h2>
+      <p>Tell us about your project and we'll get back to you within 24 hours.</p>
+    </div>
+    
+    <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="100">
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="ee11ed45-3690-4433-a363-727d3882e929">
+        <input type="hidden" name="subject" value="New Contact Form Submission">
+        <input type="hidden" name="from_name" value="UK Business Automations Website">
+        <input type="hidden" name="to_email" value="info@ukbusinessautomations.com">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-name">Your Name *</label>
+            <input type="text" id="contact-name" name="name" required placeholder="John Smith">
+          </div>
+          
+          <div class="form-group">
+            <label for="contact-email">Your Email Address *</label>
+            <input type="email" id="contact-email" name="email" required placeholder="john@example.com">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contact-phone">Phone Number (Optional)</label>
+            <input type="tel" id="contact-phone" name="phone" placeholder="+44 7700 900000">
+          </div>
+          
+          <div class="form-group">
+            <label for="contact-service">Service Interested In</label>
+            <select id="contact-service" name="service">
+              <option value="">Please select...</option>
+              <option value="Website Rental">Website Rental</option>
+              <option value="Video Content Platform">Video Content Platform</option>
+              <option value="Workflow Automation">Workflow Automation</option>
+              <option value="Care Documentation Audit">Care Documentation Audit</option>
+              <option value="Care Home Surveys">Care Home Surveys</option>
+              <option value="Courses">Courses</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="contact-message">Tell Us About Your Project *</label>
+          <textarea id="contact-message" name="message" required rows="5" placeholder="Please describe what you're looking for..."></textarea>
+        </div>
+        
+        <!-- Success/Error Messages -->
+        <div id="contactFormSuccess" class="form-message form-success" style="display: none;">
+          ✓ Thank you! We've received your message and will get back to you within 24 hours.
+        </div>
+        
+        <div id="contactFormError" class="form-message form-error" style="display: none;">
+          ✗ Oops! Something went wrong. Please try again or email us directly at info@ukbusinessautomations.com
+        </div>
+        
+        <button type="submit" class="btn-primary btn-submit">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
         <div class="course-content">
           <span class="course-badge">COURSE</span>
           <h3>AI for Business Beginners</h3>
@@ -2989,7 +3204,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </div>
   <!-- Contact Modal -->
-<div id="contactModal" class="modal">
+<div id="contactModal" class="modal" style="display: none;">
   <div class="modal-content contact-modal-content">
     <span class="modal-close" onclick="closeContactModal()">&times;</span>
     
