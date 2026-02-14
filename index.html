@@ -68,14 +68,27 @@ body {
 
 .modal-close {
   position: absolute;
-  top: 15px; right: 20px;
-  background: none;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.1);
   border: none;
+  color: #fff;
   font-size: 2rem;
-  color: var(--text-dim);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 10;
 }
+
+.modal-close:hover {
+  background: rgba(255,255,255,0.2);
+  transform: rotate(90deg);
+
 .modal-close:hover { color: var(--gold); }
 
 .modal-content h2 {
