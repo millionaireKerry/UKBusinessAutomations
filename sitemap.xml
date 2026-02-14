@@ -1,49 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- Homepage -->
   <url>
     <loc>https://ukbusinessautomations.com/</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2025-02-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Resources Page -->
   <url>
     <loc>https://ukbusinessautomations.com/resources.html</loc>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-02-14</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Blog Posts -->
+  <url>
+    <loc>https://ukbusinessautomations.com/about.html</loc>
+    <lastmod>2025-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://ukbusinessautomations.com/blog-5-automations.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2025-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://ukbusinessautomations.com/blog-ai-care-sector.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2025-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://ukbusinessautomations.com/blog-ai-prompts-guide.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2025-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>https://ukbusinessautomations.com/blog-what-is-moltbook.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2025-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
 </urlset>
