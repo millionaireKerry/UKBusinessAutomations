@@ -202,6 +202,66 @@ footer a { color: var(--gold); text-decoration: none; }
   .blog-meta { margin-top: 1.5rem; }
   nav { padding: 0.75rem 1.25rem; }
 }
+
+/* ===== COOKIE CONSENT BANNER ===== */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0d0d0d;
+  border-top: 2px solid #c9a84c;
+  color: #e0e0e0;
+  padding: 1.2rem 2rem;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+}
+#cookie-banner p {
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+  line-height: 1.5;
+}
+#cookie-banner a {
+  color: #c9a84c;
+  text-decoration: underline;
+}
+#cookie-banner .cookie-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+#cookie-banner .btn-accept {
+  background: #c9a84c;
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+#cookie-banner .btn-accept:hover { background: #e0c060; }
+#cookie-banner .btn-decline {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #555;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+#cookie-banner .btn-decline:hover { border-color: #aaa; color: #fff; }
+
 </style>
 </head>
 <body>
@@ -265,6 +325,36 @@ footer a { color: var(--gold); text-decoration: none; }
   <p><a href="/">Home</a> &nbsp;|&nbsp; <a href="/packages.html">Packages</a> &nbsp;|&nbsp; <a href="/advertise-with-chatgpt/">AI Advertising Hub</a> &nbsp;|&nbsp; <a href="/#resources">Blog</a></p>
   <p style="margin-top:0.75rem;">Independent educational resource. Not affiliated with OpenAI. &copy; 2026 UK Business Automations.</p>
 </footer>
+
+
+<!-- ===== GDPR COOKIE CONSENT BANNER ===== -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite" style="display:none;">
+  <p>
+    We use cookies to improve your experience, analyse site traffic, and serve personalised content.
+    By clicking <strong>Accept</strong>, you consent to our use of cookies in accordance with our
+    <a href="../privacy-policy.html">Privacy Policy</a>.
+  </p>
+  <div class="cookie-buttons">
+    <button class="btn-accept" onclick="acceptCookies()">Accept</button>
+    <button class="btn-decline" onclick="declineCookies()">Decline</button>
+  </div>
+</div>
+<script>
+  (function() {
+    var consent = localStorage.getItem('ukba_cookie_consent');
+    if (!consent) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  })();
+  function acceptCookies() {
+    localStorage.setItem('ukba_cookie_consent', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  function declineCookies() {
+    localStorage.setItem('ukba_cookie_consent', 'declined');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
